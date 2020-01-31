@@ -1,8 +1,8 @@
-# Desafio da semana #3
+//# Desafio da semana #3
 
-```js
+//```js
 // Declarar uma variável qualquer, que receba um objeto vazio.
-var any = {}
+const any = {}
 
 /*
 Declarar uma variável `pessoa`, que receba suas informações pessoais.
@@ -22,7 +22,7 @@ var pessoa = {
     sexo: 'M',
     idade: 23,
     altura: 1.75,
-    peso: 83.4,
+    peso: 80.8,
     andando: false,
     caminhouQuantosMetros: 0
 }
@@ -92,77 +92,82 @@ pessoa.mostrarAltura = function () {
 
 /*
 Agora vamos brincar um pouco com o objeto criado:
-Qual o nome completo da pessoa? (Use a instrução para responder e comentários
+Qual o nome completo da pessoa//? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.nomeCompleto();
+console.log(pessoa.nomeCompleto());
 // 'Olá! Meu nome é Gustavo Leal!'
 
 /*
-Qual a idade da pessoa? (Use a instrução para responder e comentários
+Qual a idade da pessoa//? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.mostrarIdade();
+console.log(pessoa.mostrarIdade());
 //'Olá, eu tenho 23 anos!'
 
 /*
-Qual o peso da pessoa? (Use a instrução para responder e comentários
+Qual o peso da pessoa//? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-?
-
+console.log(pessoa.mostrarPeso());
+//Eu peso 83.4 Kg.
 /*
-Qual a altura da pessoa? (Use a instrução para responder e comentários
+Qual a altura da pessoa//? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-?
-
+console.log(pessoa.mostrarAltura());
+//Minha altura é 1.75m.
 /*
 Faça a `pessoa` fazer 3 aniversários.
 */
-?
+pessoa.fazerAniversario();
+pessoa.fazerAniversario();
+pessoa.fazerAniversario();
 
 /*
-Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
+Quantos anos a `pessoa` tem agora//? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
 */
-?
-
+console.log(pessoa.mostrarIdade());
+//Olá, eu tenho 26 anos!
 /*
 Agora, faça a `pessoa` caminhar alguns metros, invocando o método `andar` 3x,
 com metragens diferentes passadas por parâmetro.
 */
-?
+pessoa.andar(200);
+pessoa.andar(10);
+pessoa.andar(500);
 
 /*
-A pessoa ainda está andando? (Use a instrução para responder e comentários
+A pessoa ainda está andando//? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-?
-
+console.log(pessoa.andando);
+//true
 /*
 Se a pessoa ainda está andando, faça-a parar.
 */
-?
+pessoa.parar();
 
 /*
-E agora: a pessoa ainda está andando? (Use uma instrução para responder e
+E agora: a pessoa ainda está andando//? (Use uma instrução para responder e
 comentários inline ao lado da instrução para mostrar a resposta retornada)
 */
-?
-
+console.log(pessoa.andando);
+//false
 /*
-Quantos metros a pessoa andou? (Use uma instrução para responder e comentários
+Quantos metros a pessoa andou//? (Use uma instrução para responder e comentários
 inline ao lado da instrução para mostrar a resposta retornada)
 */
-?
+
 
 /*
 Agora vamos deixar a brincadeira um pouco mais divertida! :D
 Crie um método para o objeto `pessoa` chamado `apresentacao`. Esse método deve
 retornar a string:
-- "Olá, eu sou o [NOME COMPLETO], tenho [IDADE] anos, [ALTURA], meu peso é [PESO] e, só hoje, eu já caminhei [CAMINHOU QUANTOS METROS] metros!"
+- "Olá, eu sou o [NOME COMPLETO], tenho [IDADE] anos, [ALTURA], meu peso é [PESO] e, só hoje, 
+eu já caminhei [CAMINHOU QUANTOS METROS] metros!"
 
 Só que, antes de retornar a string, você vai fazer algumas validações:
 - Se o `sexo` de `pessoa` for "Feminino", a frase acima, no início da
@@ -175,8 +180,27 @@ deve conter no retorno da frase acima é "metro" no lugar de "metros".
 método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
-?
+//?
+pessoa.apresentacao = function () {
+    let prep, idade, dist;
+    if( this.sexo === 'F') {
+         prep = "a ";
+    }
+    else if (this.sexo === 'M') {
+         prep = "o ";}
+    else {
+         prep = "error";
+    }
+    
+    if(this.idade === 1) { idade = this.idade + " ano";}
+    else { idade = this.idade + " anos";}
 
+    if(this.caminhouQuantosMetros === 1) { dist = this.caminhouQuantosMetros + " metro!";}
+    else { dist = this.caminhouQuantosMetros + " metros!";}
+
+    return "Olá, eu sou " + prep + this.nome + ", tenho " + idade + ", " + this.altura + ", meu peso é " + this.peso + " e, só hoje, eu já caminhei " + dist;
+}
 // Agora, apresente-se ;)
-?
-```
+
+console.log(pessoa.apresentacao());
+

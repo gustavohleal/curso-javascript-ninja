@@ -1,6 +1,6 @@
-# Desafio da semana #4
+//# Desafio da semana #4
 
-```js
+//```js
 /*
 Declare uma variável chamada `isTruthy`, e atribua a ela uma função que recebe
 um único parâmetro como argumento. Essa função deve retornar `true` se o
@@ -106,10 +106,20 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.addPessoas = function (n){
-    if( this.quantidadePessoas)
+    var assentosLivres = this.assentos - this.quantidadePessoas;
+    if( assentosLivres > 0 && n > assentosLivres ) {
+        if(assentosLivres === 1) {
+            return "Só cabe mais uma pessoa!";
+        } else {
+            return "Só cabem mais " + assentosLivres + " pessoas!";
+        }
+    } else if (assentosLivres === 0 && n > 0) { 
+        return "O carro já esta lotado!"
+    }else {
+        this.quantidadePessoas += n;
+    }
     return "Já temos " + this.quantidadePessoas + " pessoas no carro!";
 }
-
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
 utilize sempre o formato de invocação do método (ou chamada da propriedade),
@@ -118,38 +128,40 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+console.log(carro.obterCor());
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudaCor("Vermelho");
 
-// E agora, qual a cor do carro?
-?
+// E agora, qual a cor do carro//
+console.log(carro.obterCor());
 
 // Mude a cor do carro para verde musgo.
-?
+carro.mudaCor("verde musgo");
 
-// E agora, qual a cor do carro?
-?
+// E agora, qual a cor do carro//?
+console.log(carro.obterCor());
 
-// Qual a marca e modelo do carro?
-?
+// Qual a marca e modelo do carro//?
+console.log(carro.obterMarcaModelo());
 
 // Adicione 2 pessoas no carro.
-?
+
+console.log(carro.addPessoas(2));
 
 // Adicione mais 4 pessoas no carro.
-?
+
+console.log(carro.addPessoas(4));
 
 // Faça o carro encher.
-?
-
+console.log(carro.addPessoas(3));
+console.log(carro.addPessoas(4));
 // Tire 4 pessoas do carro.
-?
+console.log(carro.addPessoas(-4));
 
 // Adicione 10 pessoas no carro.
-?
+console.log(carro.addPessoas(10));
 
-// Quantas pessoas temos no carro?
-?
-```
+// Quantas pessoas temos no carro//?
+console.log(carro.quantidadePessoas);
+//```
